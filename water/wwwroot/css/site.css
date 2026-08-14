@@ -57,36 +57,86 @@ h1 {
     background: white;
     border-radius: 8px;
     padding: 16px;
-    padding-right: 100px; /* 右邊留空間給按鈕，避免文字被蓋到 */
+    padding-right: 116px; /* 右邊留空間給編輯/刪除按鈕 */
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     position: relative;
 }
 
+/* 標題區：品名（大、粗）+ 商品代號（小、灰） */
+.record-header {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.record-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.record-subtitle {
+    font-size: 0.85rem;
+    color: #999;
+}
+
+/* 內容改成兩欄格線，取代原本一行一行的 <p> */
+.record-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 16px;
+}
+
+.record-label {
+    display: block;
+    font-size: 0.75rem;
+    color: #999;
+}
+
+.record-value {
+    display: block;
+    font-size: 1rem;
+    color: #333;
+    font-weight: 500;
+}
+
+/* 距離上次送水：改成貼在卡片右上角的小標籤，取代原本紅字內文 */
+.record-badge {
+    position: absolute;
+    top: 12px;
+    right: 116px;
+    background: #fdecea;
+    color: #e74c3c;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 12px;
+}
+
+/* 編輯 / 刪除按鈕（跟你原本的邏輯一樣，垂直排列） */
 .record-actions {
     position: absolute;
     top: 50%;
     right: 16px;
-    transform: translateY(-50%); /* 讓按鈕真正垂直置中，而不是用 top 一半去對齊按鈕頂端 */
+    transform: translateY(-50%);
     display: flex;
-    gap: 8px;
-    flex-direction: column; /* 讓按鈕垂直排列 */
+    flex-direction: column;
+    gap: 6px;
+    align-items: stretch;
 }
 
-    .record-actions btn {
+    .record-actions .btn {
+        width: 90px;
         margin: 0;
+        text-align: center;
     }
 
-        .record p {
-            margin: 4px 0;
-            color: #333;
-            font-size: 1.2rem;
-        }
-
-        #emptyMessage {
-            color: #888;
-            text-align: center;
-            padding: 20px;
-        }
+#emptyMessage {
+    color: #888;
+    text-align: center;
+    padding: 20px;
+}
         /* ========== Upload 頁面：表單 ========== */
         .upload-card {
             background: white;

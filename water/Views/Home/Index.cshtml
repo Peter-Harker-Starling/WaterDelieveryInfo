@@ -17,23 +17,38 @@
 
     @foreach (var item in Model)
     {
-    <div class="record" id="record-@item.Record.Id">
-        <p><strong>商品代號：</strong>@item.Record.Product_Id</p>
-        <p><strong>品名：</strong>@item.Record.Product_Name</p>
-        <p><strong>日期：</strong>@item.Record.DeliveryDate.ToString("yyyy-MM-dd")</p>
-        <p><strong>數量：</strong>@item.Record.Quantity 桶</p>
-        <p><strong>剩餘桶數：</strong>@item.Record.RemainingQuantity 桶</p>
-        <p><strong>送水單號：</strong>@item.Record.Sheet_Id</p>
-
+        <div class="record" id="record-@item.Record.Id">
             @if (item.DaysSincePrevious.HasValue)
             {
-                <p style="color: red;"><strong>距離上次送水：</strong>@item.DaysSincePrevious.Value 天</p>
+                <span class="record-badge">距離上次送水 @item.DaysSincePrevious.Value 天</span>
             }
+            <div class="record-header">
+                <span class="record-title">@item.Record.Product_Name</span>
+                <span class="record-subtitle">代號：@item.Record.Product_Id</span>
+            </div>
+            <div class="record-grid">
+                <div>
+                    <span class="record-label">日期</span>
+                    <span class="record-value">@item.Record.DeliveryDate.ToString("yyyy-MM-dd")</span>
+                </div>
+                <div>
+                    <span class="record-label">數量</span>
+                    <span class="record-value">@item.Record.Quantity 桶</span>
+                </div>
+                <div>
+                    <span class="record-label">剩餘桶數</span>
+                    <span class="record-value">@item.Record.RemainingQuantity 桶</span>
+                </div>
+                <div>
+                    <span class="record-label">送水單號</span>
+                    <span class="record-value">@item.Record.Sheet_Id</span>
+                </div>
+            </div>
             <div class="record-actions">
-            <a asp-action="Edit" asp-route-id="@item.Record.Id" class="btn btn-warning">編輯</a>
-            <button type="button" class="btn btn-danger" onclick="deleteRecord(@item.Record.Id, this)">刪除</button>
+                <a asp-action="Edit" asp-route-id="@item.Record.Id" class="btn btn-warning">編輯</a>
+                <button type="button" class="btn btn-danger" onclick="deleteRecord(@item.Record.Id, this)">刪除</button>
+            </div>
         </div>
-    </div>
     }
 </div>
 

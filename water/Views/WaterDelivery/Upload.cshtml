@@ -8,9 +8,9 @@
 
 <div class="text-center">
     
-    <form asp-action="Analyze" method="post" enctype="multipart/form-data" class="upload-card">
+    <form id="uploadForm" asp-action="Analyze" method="post" enctype="multipart/form-data" class="upload-card">
         <input type="file" name="receiptImage" accept="image/*" />
-        <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Upload</button>
+        <button id="uploadBtn" type="submit" class="btn btn-primary" style="margin-top: 10px;">Upload</button>
     </form>
 
     @if (!ViewData.ModelState.IsValid)
@@ -51,3 +51,11 @@
     }
 
 </div>
+
+<script>
+    document.getElementById('uploadForm').addEventListener('submit', function() {
+        const btn = document.getElementById('uploadBtn'); 
+        btn.innerText = 'AI 解析中...';
+        btn.disabled = true;
+    });
+</script>
