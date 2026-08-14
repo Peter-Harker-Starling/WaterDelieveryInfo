@@ -1,0 +1,182 @@
+/* ========== 全域設定 ========== */
+body {
+    background-color: #f5f6f8;
+    font-family: "Segoe UI", "Microsoft JhengHei", sans-serif;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* ── Navbar ── */
+.navbar {
+    background-color: #0282c7 !important;
+    padding: 12px;
+}
+
+.navbar-brand,
+.nav-link {
+    font-weight: 600;
+    color: #f5ede0 !important;
+}
+
+    header .nav-link:hover {
+        color: #c1c1c1 !important;
+    }
+
+.navbar-toggler {
+    border-color: #e0d5c5 !important;
+}
+
+.navbar-toggler-icon {
+    filter: brightness(0) invert(1); /*將圖標顏色調整為淺色，invert(1)表示反轉顏色*/
+}
+
+/* ── Identity 側邊欄 ── */
+.nav-pills .nav-link.active {
+    background-color: #c1c1c1;
+}
+
+.nav-pills .nav-link {
+    color: #000000 !important;
+}
+
+/* ========== Dashboard：送水紀錄卡片 ========== */
+#recordList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.record {
+    background: white;
+    border-radius: 8px;
+    padding: 16px;
+    padding-right: 100px; /* 右邊留空間給按鈕，避免文字被蓋到 */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.record-actions {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%); /* 讓按鈕真正垂直置中，而不是用 top 一半去對齊按鈕頂端 */
+    display: flex;
+    gap: 8px;
+    flex-direction: column; /* 讓按鈕垂直排列 */
+}
+
+    .record-actions btn {
+        margin: 0;
+    }
+
+        .record p {
+            margin: 4px 0;
+            color: #333;
+            font-size: 1.2rem;
+        }
+
+        #emptyMessage {
+            color: #888;
+            text-align: center;
+            padding: 20px;
+        }
+        /* ========== Upload 頁面：表單 ========== */
+        .upload-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+            .upload-card div {
+                margin-bottom: 14px;
+            }
+
+            .upload-card label {
+                display: block;
+                margin-bottom: 6px;
+                font-weight: 600;
+                color: #444;
+                font-size: 0.9rem;
+            }
+
+            .upload-card input[type="date"],
+            .upload-card input[type="number"],
+            .upload-card input[type="text"],
+            .upload-card input[type="file"] {
+                width: 100%;
+                padding: 8px 10px;
+                border: 1px solid #ccc;
+                border-radius: 6px;
+                font-size: 0.95rem;
+                box-sizing: border-box;
+            }
+
+/* ── Auth 頁面 ── */
+.auth-wrapper {
+    min-height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-card {
+    width: 420px;
+    max-width: 100%;
+    background: #fff;
+    border-radius: 14px;
+    padding: 36px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* 系統名稱 */
+.auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+    .auth-header h1 {
+        margin: 0;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #2c3e50;
+    }
+
+    .auth-header p {
+        margin: 8px 0 0;
+        color: #888;
+        font-size: 0.95rem;
+    }
+
+/* Login / Register 標題 */
+.auth-card h2 {
+    margin-bottom: 24px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #333;
+}
+
+/* 表單 */
+.auth-card .form-control {
+    border-radius: 8px;
+}
+
+    .auth-card .form-control:focus {
+        border-color: #198754;
+        box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.15);
+    }
+
+/* 登入 / 註冊按鈕 */
+.auth-card button[type="submit"] {
+    border-radius: 8px;
+    font-weight: 600;
+}

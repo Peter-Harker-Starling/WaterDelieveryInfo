@@ -1,0 +1,53 @@
+﻿@model water.Models.WaterDeliveryInfo
+
+@{
+    ViewData["Title"] = "Upload";
+}
+
+<h1>上傳</h1>
+
+<div class="text-center">
+    
+    <form asp-action="Analyze" method="post" enctype="multipart/form-data" class="upload-card">
+        <input type="file" name="receiptImage" accept="image/*" />
+        <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Upload</button>
+    </form>
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div asp-validation-summary="All"></div>
+    }
+
+    @if (Model != null)
+    {
+        <hr />
+        <form asp-action="Save" method="post" class="upload-card">
+            <div>
+                <label>商品代號</label>
+                <input type="text" name="Product_Id" value="@Model.Product_Id" />
+            </div>
+            <div>
+                <label>品名</label>
+                <input type="text" name="Product_Name" value="@Model.Product_Name" />
+            </div>
+            <div>
+                <label>送水日期</label>
+                <input type="date" name="DeliveryDate" value="@Model.DeliveryDate.ToString("yyyy-MM-dd")" />
+            </div>
+            <div>
+                <label>數量</label>
+                <input type="number" name="Quantity" value="@Model.Quantity" />
+            </div>
+            <div>
+                <label>剩餘桶數</label>
+                <input type="number" name="RemainingQuantity" value="@Model.RemainingQuantity" />
+            </div>
+            <div>
+                <label>送水單號</label>
+                <input type="text" name="Sheet_Id" value="@Model.Sheet_Id" />
+            </div>
+            <button type="submit" class="btn btn-success">確定</button>
+        </form>
+    }
+
+</div>

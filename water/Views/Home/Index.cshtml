@@ -1,0 +1,69 @@
+﻿@model IEnumerable<water.Models.WaterDeliveryViewModel>
+
+@{
+    ViewData["Title"] = "Record";
+    var emptyMessageStyle = Model.Any() ? "display:none;" : "";
+}
+
+@Html.AntiForgeryToken()
+
+<div class="d-flex align-items-center justify-content-between mb-3">
+    <h1>紀錄</h1>
+    <a asp-controller="WaterDelivery" asp-action="Upload" class="btn btn-success">上傳</a>
+</div>
+
+<div id="recordList">
+    <p id="emptyMessage" class="text-center text-muted" style="@emptyMessageStyle">目前沒有送水紀錄。</p>
+
+    @foreach (var item in Model)
+    {
+    <div class="record" id="record-@item.Record.Id">
+        <p><strong>商品代號：</strong>@item.Record.Product_Id</p>
+        <p><strong>品名：</strong>@item.Record.Product_Name</p>
+        <p><strong>日期：</strong>@item.Record.DeliveryDate.ToString("yyyy-MM-dd")</p>
+        <p><strong>數量：</strong>@item.Record.Quantity 桶</p>
+        <p><strong>剩餘桶數：</strong>@item.Record.RemainingQuantity 桶</p>
+        <p><strong>送水單號：</strong>@item.Record.Sheet_Id</p>
+
+            @if (item.DaysSincePrevious.HasValue)
+            {
+                <p style="color: red;"><strong>距離上次送水：</strong>@item.DaysSincePrevious.Value 天</p>
+            }
+            <div class="record-actions">
+            <a asp-action="Edit" asp-route-id="@item.Record.Id" class="btn btn-warning">編輯</a>
+            <button type="button" class="btn btn-danger" onclick="deleteRecord(@item.Record.Id, this)">刪除</button>
+        </div>
+    </div>
+    }
+</div>
+
+<script>
+    function deleteRecord(id, button) {
+        if (!confirm("確定要刪除這筆送水紀錄嗎 ?")) return;
+
+        button.disabled = true;
+
+        fetch('@Url.Action("Delete", "Home")', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: `id=${id}&__RequestVerificationToken=${document.querySelector('input[name="__RequestVerificationToken"]').value}`
+        }).then(res => {
+            if (res.ok) {
+                document.getElementById(`record-${id}`).remove();
+
+                const recordCount = recordList.querySelectorAll(".record").length;
+
+                if (recordCount === 0) {
+                    document.getElementById("emptyMessage").style.display = "block";
+                }
+            } else {
+                alert("刪除失敗，請稍後再試。");
+                button.disabled = false;
+            }
+        }).catch(error => {
+            button.disabled = false;
+            console.error(error);
+            alert("刪除失敗，請稍後再試。");
+        });
+    }
+</script>
