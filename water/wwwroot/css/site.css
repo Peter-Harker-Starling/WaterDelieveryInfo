@@ -65,8 +65,9 @@ h1 {
 /* 標題區：品名（大、粗）+ 商品代號（小、灰） */
 .record-header {
     display: flex;
+    flex-wrap: wrap; /* 允許換行 */
     align-items: baseline;
-    gap: 10px;
+    gap: 6px 10px;
     margin-bottom: 10px;
 }
 
@@ -81,37 +82,14 @@ h1 {
     color: #999;
 }
 
-/* 內容改成兩欄格線，取代原本一行一行的 <p> */
-.record-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px 16px;
-}
-
-.record-label {
-    display: block;
-    font-size: 0.75rem;
-    color: #999;
-}
-
-.record-value {
-    display: block;
-    font-size: 1rem;
-    color: #333;
-    font-weight: 500;
-}
-
-/* 距離上次送水：改成貼在卡片右上角的小標籤，取代原本紅字內文 */
 .record-badge {
-    position: absolute;
-    top: 12px;
-    right: 116px;
     background: #fdecea;
     color: #e74c3c;
     font-size: 0.75rem;
     font-weight: 600;
     padding: 3px 8px;
     border-radius: 12px;
+    white-space: nowrap; /* 避免換行 */
 }
 
 /* 編輯 / 刪除按鈕（跟你原本的邏輯一樣，垂直排列） */
@@ -127,7 +105,7 @@ h1 {
 }
 
     .record-actions .btn {
-        width: 90px;
+        width: 60px;
         margin: 0;
         text-align: center;
     }
