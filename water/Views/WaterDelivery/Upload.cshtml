@@ -9,7 +9,7 @@
 <div class="text-center">
     
     <form id="uploadForm" asp-action="Analyze" method="post" enctype="multipart/form-data" class="upload-card">
-        <input type="file" name="receiptImage" accept="image/*" />
+        <input type="file" name="receiptImage" accept="image/*" class="form-control" />
         <button id="uploadBtn" type="submit" class="btn btn-primary" style="margin-top: 10px;">Upload</button>
     </form>
 
@@ -22,27 +22,27 @@
     <form asp-action="Save" method="post" class="upload-card">
         <div>
             <label>商品代號</label>
-            <input type="text" name="Product_Id" value="@(Model?.Product_Id ?? "")" />
+            <input type="text" name="Product_Id" class="form-control" value="@(Model?.Product_Id ?? "")" />
         </div>
         <div>
             <label>品名</label>
-            <input type="text" name="Product_Name" value="@(Model?.Product_Name ?? "")" />
+            <input type="text" name="Product_Name" class="form-control" value="@(Model?.Product_Name ?? "")" />
         </div>
         <div>
             <label>送水日期</label>
-            <input type="date" name="DeliveryDate" value="@(Model?.DeliveryDate.ToString("yyyy-MM-dd") ?? "")" />
+            <input type="date" name="DeliveryDate" class="form-control" value="@(Model?.DeliveryDate.ToString("yyyy-MM-dd") ?? "")" />
         </div>
         <div>
             <label>數量</label>
-            <input type="number" name="Quantity" value="@(Model?.Quantity.ToString() ?? "")" />
+            <input type="number" name="Quantity" class="form-control" value="@(Model?.Quantity.ToString() ?? "")" />
         </div>
         <div>
             <label>剩餘桶數</label>
-            <input type="number" name="RemainingQuantity" value="@(Model?.RemainingQuantity.ToString() ?? "")" />
+            <input type="number" name="RemainingQuantity" class="form-control" value="@(Model?.RemainingQuantity.ToString() ?? "")" />
         </div>
         <div>
             <label>送水單號</label>
-            <input type="text" name="Sheet_Id" value="@(Model?.Sheet_Id ?? "")" />
+            <input type="text" name="Sheet_Id" class="form-control" value="@(Model?.Sheet_Id ?? "")" />
         </div>
         <button type="submit" class="btn btn-success">確定</button>
         <button type="button" class="btn btn-secondary" onclick="window.location.href='@Url.Action("Index", "Home")'">取消</button>

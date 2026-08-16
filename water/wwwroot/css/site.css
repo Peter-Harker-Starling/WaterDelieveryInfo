@@ -137,22 +137,6 @@ h1 {
                 font-size: 0.9rem;
             }
 
-            .upload-card input[type="date"],
-            .upload-card input[type="number"],
-            .upload-card input[type="text"],
-            .upload-card input[type="file"] {
-                width: 100%;
-                padding: 8px 10px;
-                border: 1px solid #ccc;
-                border-radius: 6px;
-                font-size: 0.95rem;
-                box-sizing: border-box;
-            }
-
-            .upload-card input[type="date"] {
-                width: 100%;
-            }
-
 /* ── Auth 頁面 ── */
 .auth-wrapper {
     min-height: 75vh;
