@@ -35,15 +35,6 @@ h1 {
     filter: brightness(0) invert(1); /*將圖標顏色調整為淺色，invert(1)表示反轉顏色*/
 }
 
-/* ── Identity 側邊欄 ── */
-.nav-pills .nav-link.active {
-    background-color: #c1c1c1;
-}
-
-.nav-pills .nav-link {
-    color: #000000 !important;
-}
-
 /* ========== Dashboard：送水紀錄卡片 ========== */
 #recordList {
     display: flex;
@@ -57,12 +48,11 @@ h1 {
     background: white;
     border-radius: 8px;
     padding: 16px;
-    padding-right: 116px; /* 右邊留空間給編輯/刪除按鈕 */
+    padding-right: 116px; /* 右邊留空間給編輯、刪除按鈕 */
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     position: relative;
 }
 
-/* 標題區：品名（大、粗）+ 商品代號（小、灰） */
 .record-header {
     display: flex;
     flex-wrap: wrap; /* 允許換行 */
@@ -101,7 +91,7 @@ h1 {
     display: flex;
     flex-direction: column;
     gap: 6px;
-    align-items: stretch;
+    align-items: stretch; /* 讓按鈕寬度一致 */
 }
 
     .record-actions .btn {
@@ -115,27 +105,28 @@ h1 {
     text-align: center;
     padding: 20px;
 }
-        /* ========== Upload 頁面：表單 ========== */
-        .upload-card {
-            background: white;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            text-align: left;
-        }
 
-            .upload-card div {
-                margin-bottom: 14px;
-            }
+/* ========== Upload 頁面：表單 ========== */
+.upload-card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: left;
+}
 
-            .upload-card label {
-                display: block;
-                margin-bottom: 6px;
-                font-weight: 600;
-                color: #444;
-                font-size: 0.9rem;
-            }
+    .upload-card div {
+        margin-bottom: 14px;
+    }
+
+    .upload-card label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 600;
+        color: #444;
+        font-size: 0.9rem;
+    }
 
 /* ── Auth 頁面 ── */
 .auth-wrapper {
@@ -163,7 +154,6 @@ h1 {
     .auth-header h1 {
         margin: 0;
         font-size: 2rem;
-        font-weight: 700;
         color: #2c3e50;
     }
 
@@ -173,26 +163,9 @@ h1 {
         font-size: 0.95rem;
     }
 
-/* Login / Register 標題 */
 .auth-card h2 {
     margin-bottom: 24px;
     font-size: 1.4rem;
     font-weight: 600;
     color: #333;
-}
-
-/* 表單 */
-.auth-card .form-control {
-    border-radius: 8px;
-}
-
-    .auth-card .form-control:focus {
-        border-color: #198754;
-        box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.15);
-    }
-
-/* 登入 / 註冊按鈕 */
-.auth-card button[type="submit"] {
-    border-radius: 8px;
-    font-weight: 600;
 }
