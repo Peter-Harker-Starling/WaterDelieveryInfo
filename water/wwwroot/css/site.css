@@ -150,12 +150,7 @@ h1 {
             }
 
             .upload-card input[type="date"] {
-                -webkit-appearance: none; /* 關閉 Safari 的預設樣式 */
-                appearance: none; /* 關閉其他瀏覽器的預設樣式 */
                 width: 100%;
-                max-width: 100%; /* 確保不超過父容器寬度 */
-                min-width: 0; /* 確保在小螢幕上不會被限制 */
-                box-sizing: border-box; /* 確保 padding 不會影響寬度 */
             }
 
 /* ── Auth 頁面 ── */
