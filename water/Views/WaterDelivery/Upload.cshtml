@@ -45,6 +45,7 @@
             <input type="text" name="Sheet_Id" value="@(Model?.Sheet_Id ?? "")" />
         </div>
         <button type="submit" class="btn btn-success">確定</button>
+        <button type="button" class="btn btn-secondary" onclick="window.location.href='@Url.Action("Index", "Home")'">取消</button>
     </form>
 
 </div>
