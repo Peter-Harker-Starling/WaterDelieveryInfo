@@ -1,6 +1,6 @@
 # WaterDeliveryInfo
 
-一個使用 ASP.NET Core MVC 製作的桶裝水單據管理系統，支援使用者登入、個人資料隔離，以及每一次的送水單據紀錄。
+一個使用 ASP.NET Core MVC 製作的桶裝水單據管理系統，支援使用者登入、送水紀錄管理。
 
 ---
 
@@ -33,17 +33,12 @@
 ## 功能
 
 - 🔐 使用者註冊 / 登入
-- 👤 每位使用者只能看到自己的送水紀錄
 - 📷 上傳送水單據圖片
-- 🤖 使用 Gemini 分析單據
-- 📅 自動辨識送水日期
-- 💧 自動辨識本次送水數量
-- 💧 自動辨識剩餘水量
-- 💾 將分析結果儲存到 PostgreSQL
+- 🤖 使用 Gemini 分析單據內容
 - ✏️ 編輯送水紀錄
 - 🗑️ 刪除送水紀錄
-- 📊 Dashboard 查看歷史送水紀錄
-- 📆 計算兩次送水之間相隔幾天
+- 📊 Record 查看歷史送水紀錄
+- 📆 計算送水紀錄之間相隔天數差
 
 ---
 
@@ -113,7 +108,6 @@ dotnet run
 - Entity Framework Core Migration
 - ASP.NET Identity 
 - PostgreSQL / Neon 雲端資料庫整合
-- Docker 容器化部署
+- Docker 容器化
 - Render 雲端部署
 - Google Gemini 圖片辨識與資料解析
-- 使用者資料隔離與授權控制
