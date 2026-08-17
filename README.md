@@ -12,13 +12,13 @@
 
 ## Screenshots
 
-![Record](test/ScreenShots/record.jpg)
-![Upload](test/ScreenShots/upload.jpg)
-![Edit](test/ScreenShots/edit.jpg)
-![AI](test/ScreenShots/ai.jpg)
-![Delete](test/ScreenShots/delete.jpg)
-![Login](test/ScreenShots/login.jpg)
-![Register](test/ScreenShots/register.jpg)
+![Record](water/ScreenShots/record.jpg)
+![Upload](water/ScreenShots/upload.jpg)
+![Edit](water/ScreenShots/edit.jpg)
+![AI](water/ScreenShots/ai.jpg)
+![Delete](water/ScreenShots/delete.jpg)
+![Login](water/ScreenShots/login.jpg)
+![Register](water/ScreenShots/register.jpg)
 
 
 ## 部署注意事項 (Render Free Plan)
