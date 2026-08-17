@@ -128,6 +128,27 @@ h1 {
         font-size: 0.9rem;
     }
 
+/* 錯誤訊息提示 */
+.error-alert {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 16px;
+    border-radius: 10px;
+    background-color: #f8d7da;
+    color: #842029;
+    text-align: left;
+}
+
+.error-alert-title {
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.error-alert-message {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
 /* ── Auth 頁面 ── */
 .auth-wrapper {
     min-height: 75vh;

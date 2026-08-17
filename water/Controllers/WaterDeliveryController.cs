@@ -53,7 +53,7 @@ namespace water.Controllers
             catch (Exception ex)
             {
                 // 如果判讀失敗，顯示錯誤訊息
-                ModelState.AddModelError("", $"圖片判讀失敗，請稍後再試。錯誤: {ex.Message}");
+                ModelState.AddModelError("", "圖片判讀失敗，請稍後再試。");
                 return View("Upload");
             }
         }
